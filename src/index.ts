@@ -1,4 +1,5 @@
 import express, {Request,Response} from 'express';
+import cors from "cors"
 import { PrismaClient } from '@prisma/client';
 import movieRoutes from './routes/movieRoutes'
 import reviewRoutes from './routes/reviewRoutes'
@@ -8,7 +9,7 @@ const app=express();
 const PORT=process.env.PORT || 8000;
 
 app.use(express.json());
-
+app.use(cors());
 app.get('/test',(req:Request,res:Response)=>{
     res.send("Hi Wlcome to this movie review portal")
 })
